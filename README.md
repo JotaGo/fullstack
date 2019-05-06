@@ -1,5 +1,15 @@
 # Test Fullstack Tech-K
 
+## Supuestos
+---
+Supuestos realizados:
+1. En el diseño de la base de datos, se configuró el atributo “stock” como un campo de entero ya que se puede obtener más información mediante un dato numérico que mediante un dato booleano.
+
+2. Para la ejecución del scraper el botón al ser presionado envía al usuario a otra url donde django revisará si existen datos almacenados, si existen datos reenviara al usuario a la lista de categorías, pero si no hay datos, ejecutará el scraper y luego almacena los datos con Django RESTframework.
+
+3. El botón para eliminar registros se encuentra siempre presente en la tabla y este funciona redirigiendo al usuario a un URL del id del libro para eliminarlo y luego redirigirlo nuevamente a la tabla de la misma categoría.
+
+
 ## Objetivo
 ---
 Por medio de este test se evaluarán algunos de tus conocimientos que nos interesan como desarrollador.
