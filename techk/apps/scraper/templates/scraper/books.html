@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <h1>{{ categoria.name }}</h1>
 
 <form method="POST" action=".">
@@ -21,13 +22,13 @@
         {% for libro in libros %}
         <tr>
             <td>{{ libro.title }}</td>
-            <td><img src="{{ libro.thumbnail }}" alt=""></td>
+            <td><img src="{{ libro.thumbnail }}" alt="{{ libro.title }}" width="200px" height="300px"></td>
             <td>{{ libro.price }}</td>
             <td>{{ libro.stock }}</td>
             <td>{{ libro.description }}</td>
             <td>{{ libro.upc }}</td>
             <td>
-                <a class='btn btn-primary' href="{% url 'delete' categoria.id libro.id %}">Eliminar</a>
+                <a class="btn btn-primary" href="{% url 'delete' categoria.id libro.id %}">Eliminar</a>
             </td>
         </tr>
         {% endfor %}
