@@ -16,12 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from apps.base.views import index
-from apps.scraper.views import scraper
+from apps.scraper import views  
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'scraper/', scraper),
+    url(r'scraper/', views.index, name='scraper_b'),
+    url(r'executing/', views.execute, name='exec_scraper'),
+    url(r'categorys/([0-9]+)/([0-9]+)/', views.book_delete, name='delete'),
+    url(r'categorys/([0-9]+)/', views.book_list, name='books'),
+    url(r'categorys/', views.category_list, name='categorias'),
     url(r'', index),
     url(r'^api-auth/', include('rest_framework.urls'))
 ]

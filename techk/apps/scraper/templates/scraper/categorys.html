@@ -1,0 +1,9 @@
+{% if categorias %}
+    <ul>
+    {% for categoria in categorias %}
+        <li><a href="/categorys/{{ categoria.id }}/">{{ categoria.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay registro de categorias</p>
+{% endif %}

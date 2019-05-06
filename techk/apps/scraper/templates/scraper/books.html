@@ -1,0 +1,40 @@
+<h1>{{ categoria.name }}</h1>
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Thumbnail</td>
+            <td>Price</td>
+            <td>Stock</td>
+            <td>Description</td>
+            <td>UPC</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if libros %}
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.title }}</td>
+            <td><img src="{{ libro.thumbnail }}" alt=""></td>
+            <td>{{ libro.price }}</td>
+            <td>{{ libro.stock }}</td>
+            <td>{{ libro.description }}</td>
+            <td>{{ libro.upc }}</td>
+            <td>
+                <a class='btn btn-primary' href="{% url 'delete' categoria.id libro.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        {% else %}
+        <h5>No hay registro de trayectos</h5>
+
+        {% endif %}
+    </tbody>
+</table>
